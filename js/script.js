@@ -2,16 +2,23 @@
 //
 // Created by: Janet Do
 // Created on: Sep 2020
-// This file generates the area of a triangle
+// This file generates a random number generator
+
 "use strict"
-function calculate() {
-  // input
-  const base = parseInt(document.getElementById("base").value)
-  const height = parseInt(document.getElementById("height").value)
 
-  // process
-  const area = base * height / 2
+let randomNumber = Math.floor(Math.random() * 6) + 1
 
-  // output
-  document.getElementById("area").innerHTML = "Area is: " + area + " cm²"
+function myButtonClicked() {
+  const numberGuessed = parseInt(
+    document.getElementById("guessed-number").value
+  )
+
+  if (numberGuessed == randomNumber) {
+    document.getElementById("answer").innerHTML = "Good job!"
+    randomNumber = Math.floor(Math.random() * 6) + 1
+  } else {
+    document.getElementById("answer").innerHTML = "Try again."
+  }
 }
+
+
