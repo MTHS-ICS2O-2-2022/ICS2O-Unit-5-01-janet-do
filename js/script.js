@@ -14,10 +14,10 @@ function myButtonClicked() {
   )
 
   if (numberGuessed == randomNumber) {
-    document.getElementById("answer").innerHTML = "Good job!"
+    document.getElementById("answer").innerHTML = "You guessed correctly!"
     randomNumber = Math.floor(Math.random() * 6) + 1
   } else {
-    document.getElementById("answer").innerHTML = "Try again."
+    document.getElementById("answer").innerHTML = "You guessed wrong."
   }
 }
 
