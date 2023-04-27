@@ -1,3 +1,8 @@
+// Copyright (c) 2020 Janet Do All rights reserved
+//
+// Created by: Janet Do
+// Created on: Sep 2020
+// This file generates a random number generator
 {
   ;("use strict")
   ;(function () {
