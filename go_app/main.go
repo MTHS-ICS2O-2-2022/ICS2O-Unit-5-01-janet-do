@@ -6,17 +6,18 @@
 package main
 
 import (
+	"crypto/rand"
 	"fmt"
-	"math/rand"
-	"time"
+	"math/big"
 )
 
 func main() {
-	// Initialize random number generator
-	rand.Seed(time.Now().UnixNano())
-
 	// Generate a random number between 1 and 6
-	randomNumber := rand.Intn(6) + 1
+	randomNumber, err := rand.Int(rand.Reader, big.NewInt(6))
+	if err != nil {
+		fmt.Println("Error generating random number:", err)
+		return
+	}
 
 	// Ask the user to enter a number between 1 and 6
 	fmt.Println("Guess a number between 1 and 6:")
@@ -24,9 +25,9 @@ func main() {
 	fmt.Scanln(&userNumber)
 
 	// Check if the user's guess is correct
-	if userNumber == randomNumber {
+	if userNumber == int(randomNumber.Int64())+1 {
 		fmt.Println("Congratulations! You guessed correctly.")
 	} else {
-		fmt.Println("Sorry, you guessed wrong. The correct number was", randomNumber)
+		fmt.Println("Sorry, you guessed wrong. The correct number was", randomNumber.Int64()+1)
 	}
 }
